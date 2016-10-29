@@ -6,4 +6,7 @@
     <string name="CLIENT_AE_ID">C-Y249U2lsdmVyc3RvbmVTdGF5LG91PXJvb3Q</string>
     <string name="TOKEN">01oRxXYjeeY2EzJo</string>
     <string name="INSTALLATION_ID">NONNULL</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

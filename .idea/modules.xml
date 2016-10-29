@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/HackathonOneTransp.iml" filepath="$PROJECT_DIR$/HackathonOneTransp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SilverstoneStay.iml" filepath="$PROJECT_DIR$/SilverstoneStay.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

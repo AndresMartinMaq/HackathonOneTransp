@@ -1,17 +1,13 @@
 package hackathon.silverstonestay;
 
-/**
- * Created by tangd on 29/10/2016.
- */
 
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager;
-import android.content.Context;
 import android.support.v4.content.Loader;
-import android.os.Bundle;
-import android.util.Log;
-
-import com.interdigital.android.dougal.resource.callback.DougalCallback;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import net.uk.onetransport.android.modules.bitcarriersilverstone.data.travelsummary.TravelSummary;
 import net.uk.onetransport.android.modules.bitcarriersilverstone.data.travelsummary.TravelSummaryRetrieverLoader;
@@ -19,9 +15,25 @@ import net.uk.onetransport.android.modules.bitcarriersilverstone.generic.Retriev
 
 import java.util.ArrayList;
 
-public class SilverstoneRealTimeRetriever extends Fragment implements LoaderManager.LoaderCallbacks<RetrieverResult<TravelSummary>>{
+
+/**
+ * A simple {@link Fragment} subclass.
+ */
+public class RealTimeRetriever extends Fragment implements LoaderManager.LoaderCallbacks<RetrieverResult<TravelSummary>>{
 
     ArrayList<TravelSummary> travelSummaries;
+
+    public RealTimeRetriever() {
+        // Required empty public constructor
+    }
+
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_real_time_retriever, container, false);
+    }
 
     public void onActivityCreated(Bundle savedInstanceState) {
         getLoaderManager().initLoader(0, null, this); //This will call onCreateLoader appropriately.
@@ -42,5 +54,4 @@ public class SilverstoneRealTimeRetriever extends Fragment implements LoaderMana
     public void onLoaderReset(Loader<RetrieverResult<TravelSummary>> loader) {
 
     }
-
 }
