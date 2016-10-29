@@ -12,6 +12,6 @@ import net.uk.onetransport.android.modules.bitcarriersilverstone.authentication.
 public class DataController {
 
     public DataController(Context context){
-        CredentialHelper.initialiseCredentials(context, context.getString(R.string.CIENT_AE_ID), context.getString(R.string.TOKEN), context.getString(R.string.INSTALLATION_ID));
+        CredentialHelper.initialiseCredentials(context, context.getString(R.string.CLIENT_AE_ID), context.getString(R.string.TOKEN), context.getString(R.string.INSTALLATION_ID));
     }
 }
