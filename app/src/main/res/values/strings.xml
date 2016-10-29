@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">SilverstoneStay</string>
     <string name="action_settings">Settings</string>
+    <string name="provider_authority">com.gdp.SilverstonStay.provider</string>
+    <string name="sync_account_type">SilverstoneStay.gdp.com</string>
+    <string name="CIENT_AE_ID">C-Y249U2lsdmVyc3RvbmVTdGF5LG91PXJvb3Q</string>
+    <string name="TOKEN">01oRxXYjeeY2EzJo</string>
+    <string name="INSTALLATION_ID">NONNULL</string>
 </resources>

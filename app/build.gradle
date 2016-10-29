@@ -5,7 +5,7 @@ android {
     buildToolsVersion "24.0.3"
     defaultConfig {
         applicationId "hackathon.silverstonestay"
-        minSdkVersion 15
+        minSdkVersion 16
         targetSdkVersion 24
         versionCode 1
         versionName "1.0"
@@ -26,5 +26,23 @@ dependencies {
     })
     compile 'com.android.support:appcompat-v7:24.2.1'
     compile 'com.android.support:design:24.2.1'
+    compile 'com.interdigital.android:bucks-debug:1.0.0@aar'
+    compile 'com.interdigital.android:herts-debug:1.0.0@aar'
+    compile 'com.interdigital.android:northants-debug:1.0.0@aar'
+    compile 'com.interdigital.android:oxon-debug:1.0.0@aar'
+    compile 'com.interdigital.android:clearviewsilverstone-debug:1.0.0@aar'
+    compile 'com.interdigital.android:bitcarriersilverstone-debug:1.0.0@aar'
+    compile 'com.interdigital.android:common-debug:1.0.0@aar'
+    compile 'com.interdigital.android:dougal-debug:1.0.0@aar'
+    compile 'com.google.code.gson:gson:2.5'
+    compile 'com.squareup.retrofit2:retrofit:2.0.1'
+    compile 'com.squareup.retrofit2:converter-gson:2.0.1'
+    compile 'com.squareup.okhttp3:logging-interceptor:3.2.0'
     testCompile 'junit:junit:4.12'
+}
+
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
 }
