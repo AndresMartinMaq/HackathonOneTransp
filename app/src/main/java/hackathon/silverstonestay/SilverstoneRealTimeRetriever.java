@@ -4,38 +4,43 @@ package hackathon.silverstonestay;
  * Created by tangd on 29/10/2016.
  */
 
-import android.app.Fragment;
-import android.app.LoaderManager;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.LoaderManager;
 import android.content.Context;
-import android.content.Loader;
+import android.support.v4.content.Loader;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.interdigital.android.dougal.resource.callback.DougalCallback;
+
+import net.uk.onetransport.android.modules.bitcarriersilverstone.data.travelsummary.TravelSummary;
+import net.uk.onetransport.android.modules.bitcarriersilverstone.data.travelsummary.TravelSummaryRetrieverLoader;
 import net.uk.onetransport.android.modules.bitcarriersilverstone.generic.RetrieverResult;
-import net.uk.onetransport.android.modules.bitcarriersilverstone.generic.RetrieverLoader;
-import net.uk.onetransport.android.modules.bitcarriersilverstone.data.travelsummary.TravelTime;
 
 import java.util.ArrayList;
 
-import static android.R.attr.fragment;
+public class SilverstoneRealTimeRetriever extends Fragment implements LoaderManager.LoaderCallbacks<RetrieverResult<TravelSummary>>{
 
-public class SilverstoneRealTimeRetriever extends Fragment implements LoaderManager.LoaderCallbacks<RetrieverResult<TravelTime>>{
+    ArrayList<TravelSummary> travelSummaries;
 
-    ArrayList<TravelTime> travelTimes;
-
-    @Override
-    public Loader<RetrieverResult<TravelTime>> onCreateLoader(int id, Bundle args) {
-        return getLoaderManager().initLoader(0, null, this);
+    public void onActivityCreated(Bundle savedInstanceState) {
+        getLoaderManager().initLoader(0, null, this); //This will call onCreateLoader appropriately.
+        super.onActivityCreated(savedInstanceState);
     }
 
     @Override
-    public void onLoadFinished(Loader<RetrieverResult<TravelTime>> loader, RetrieverResult<TravelTime> data) {
-        travelTimes = data.getTs();
+    public Loader<RetrieverResult<TravelSummary>> onCreateLoader(int id, Bundle args) {
+        return new TravelSummaryRetrieverLoader(getContext());
     }
 
     @Override
-    public void onLoaderReset(Loader<RetrieverResult<TravelTime>> loader) {
-        //LeaveBlank
+    public void onLoadFinished(Loader<RetrieverResult<TravelSummary>> loader, RetrieverResult<TravelSummary> data) {
+        travelSummaries = data.getTs();
+    }
+
+    @Override
+    public void onLoaderReset(Loader<RetrieverResult<TravelSummary>> loader) {
+
     }
 
 }

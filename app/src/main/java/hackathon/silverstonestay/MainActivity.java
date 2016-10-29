@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        CredentialHelper.initialiseCredentials(this, getString(R.string.CIENT_AE_ID), getString(R.string.TOKEN), getString(R.string.INSTALLATION_ID));
+        CredentialHelper.initialiseCredentials(this, getString(R.string.CLIENT_AE_ID), getString(R.string.TOKEN), getString(R.string.INSTALLATION_ID));
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
