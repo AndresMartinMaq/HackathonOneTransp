@@ -13,14 +13,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import net.uk.onetransport.android.modules.bitcarriersilverstone.authentication.CredentialHelper;
-import net.uk.onetransport.android.modules.bitcarriersilverstone.config.sketch.Sketch;
-import net.uk.onetransport.android.modules.bitcarriersilverstone.config.sketch.SketchRetriever;
+import net.uk.onetransport.android.modules.bitcarriersilverstone.config.node.Node;
+import net.uk.onetransport.android.modules.bitcarriersilverstone.config.node.NodeRetriever;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    ArrayList<Sketch> sketches;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,11 +31,7 @@ public class MainActivity extends AppCompatActivity {
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
                 .permitAll().build();
         StrictMode.setThreadPolicy(policy);
-        try {
-            sketches = new SketchRetriever(this).retrieve();
-        } catch(Exception e){
-            e.printStackTrace();
-        }
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,9 +41,26 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        RealTimeRetriever fragment = new RealTimeRetriever();
-        getSupportFragmentManager().beginTransaction().add(
-                R.id.content, fragment).commit();
+//        ArrayList<Node> nodes = new ArrayList<Node>();
+//
+//        try {
+//            Log.e("HELLO","HELLO");
+//            nodes = new NodeRetriever(this).retrieve();
+//
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//            Log.d("Hello", "Hello");
+//        }
+//
+//        for(Node n : nodes){
+//            if(n.getId()==3||n.getId()==13||n.getId()==22){
+//                Log.d("Latitude", ""+n.getLatitude());
+//                Log.d("Longitude", ""+n.getLongitude());
+//            }
+//        }
+
+//        RefresherThread refresher = new RefresherThread(this);
+//        refresher.run();
     }
 
     @Override
