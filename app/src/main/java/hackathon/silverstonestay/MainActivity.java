@@ -29,6 +29,10 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+        SilverstoneRealTimeRetriever fragment = new SilverstoneRealTimeRetriever();
+        getFragmentManager().beginTransaction().add(
+                R.id.main_fragment, fragment).commit();
     }
 
     @Override
