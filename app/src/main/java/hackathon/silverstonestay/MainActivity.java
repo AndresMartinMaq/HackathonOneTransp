@@ -41,23 +41,25 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-//        ArrayList<Node> nodes = new ArrayList<Node>();
+        ArrayList<Node> nodes = new ArrayList<Node>();
+
+        try {
+            nodes = new NodeRetriever(this).retrieve();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            Log.d("Hello", "Hello");
+        }
+        Log.e("node",""+nodes.size());
 //
-//        try {
-//            Log.e("HELLO","HELLO");
-//            nodes = new NodeRetriever(this).retrieve();
-//
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//            Log.d("Hello", "Hello");
-//        }
-//
-//        for(Node n : nodes){
-//            if(n.getId()==3||n.getId()==13||n.getId()==22){
-//                Log.d("Latitude", ""+n.getLatitude());
-//                Log.d("Longitude", ""+n.getLongitude());
-//            }
-//        }
+        for(Node n : nodes){
+           String from =  n.getCustomerName().replaceFirst("-.*","");
+            if(from.equals("3")||from.equals("13")||from.equals("22")){
+                Log.d("Latitude", from + " "+n.getLatitude());
+
+                Log.d("Longitude", from + " " +n.getLongitude());
+            }
+        }
 
 //        RefresherThread refresher = new RefresherThread(this);
 //        refresher.run();
