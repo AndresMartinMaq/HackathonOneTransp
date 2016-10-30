@@ -37,30 +37,13 @@ public class RefresherThread implements Runnable{
                 travelSummaries = new TravelSummaryRetriever(context).retrieve();
                 final double score = findMean();
                 Log.d("Andres", "Finished, score is: "+score);
-
-                ((MainActivity) context).updateUI(score);
-
-
-                //Doesn't work
-                /*((MainActivity) context).runOnUiThread(new Runnable() {
+                
+                ((MainActivity) context).runOnUiThread(new Runnable() {
                     public void run() {
                         Log.d("Andres", "Running a UI thread");
-                        ((MainActivity) context).updateUI(score);
+
                     }
-                });*/
-
-                //works less
-                /*View view = ((MainActivity) context).findViewById(R.id.content_main);
-                view.post(new Runnable() {
-                    public void run() {
-                        ((MainActivity) context).updateUI(score);
-                    }
-                });*/
-
-                /*Intent intent = new Intent(context, MainActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-                context.startActivity(intent);*/
-
+                });
                 Thread.sleep(20000);
             } catch (Exception e) {
                 e.printStackTrace();
