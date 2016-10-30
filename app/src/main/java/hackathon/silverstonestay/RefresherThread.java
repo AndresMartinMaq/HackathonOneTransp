@@ -26,6 +26,7 @@ public class RefresherThread implements Runnable{
 
     public RefresherThread(Context context){
         this.context = context;
+
     }
 
     public void run() {
