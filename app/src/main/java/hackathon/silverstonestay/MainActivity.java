@@ -45,30 +45,31 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                //this testing dialog.
+                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                builder.setTitle("Preview Traffic Score");
+                builder.setMessage("Enter number between 0 and 1.");
+
+                final EditText input = new EditText(MainActivity.this);
+                input.setInputType(InputType.TYPE_CLASS_NUMBER);
+                input.setInputType(InputType.TYPE_NUMBER_FLAG_DECIMAL);
+                builder.setView(input);
+
+                // Set up the buttons with listeners
+                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        String value = input.getText().toString();
+                        if (value.equals( "")){ return; }
+                        updateUI(Double.parseDouble(value));
+                    }
+                });
+                builder.create();
+                builder.show();
             }
         });
 
         r = new Random();
-
-//        ArrayList<Node> nodes = new ArrayList<Node>();
-//
-//        try {
-//            Log.e("HELLO","HELLO");
-//            nodes = new NodeRetriever(this).retrieve();
-//
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//            Log.d("Hello", "Hello");
-//        }
-//
-//        for(Node n : nodes){
-//            if(n.getId()==3||n.getId()==13||n.getId()==22){
-//                Log.d("Latitude", ""+n.getLatitude());
-//                Log.d("Longitude", ""+n.getLongitude());
-//            }
-//        }
 
         new Thread(new RefresherThread(this)).start();
     }
@@ -89,29 +90,6 @@ public class MainActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            //changeColor(0.73);
-
-            //TODO delete this testing dialog.
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setTitle("Preview Traffic Score");
-            builder.setMessage("Enter number between 0 and 1.");
-
-            final EditText input = new EditText(this);
-            input.setInputType(InputType.TYPE_CLASS_NUMBER);
-            input.setInputType(InputType.TYPE_NUMBER_FLAG_DECIMAL);
-            builder.setView(input);
-
-            // Set up the buttons with listeners
-            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    String value = input.getText().toString();
-                    if (value.equals( "")){ return; }
-                    updateUI(Double.parseDouble(value));
-                }
-            });
-            builder.create();
-            builder.show();
             return true;
         }
 
