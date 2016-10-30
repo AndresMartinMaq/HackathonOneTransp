@@ -33,7 +33,8 @@ public class RefresherThread implements Runnable{
         while(true){
             try {
                 travelSummaries = new TravelSummaryRetriever(context).retrieve();
-                findMean();
+                double score = findMean();
+                ((MainActivity) context).updateUI(score);
                 Thread.sleep(20000);
             } catch (Exception e) {
                 e.printStackTrace();

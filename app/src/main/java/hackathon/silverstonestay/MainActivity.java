@@ -3,6 +3,7 @@ package hackathon.silverstonestay;
 import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
@@ -37,9 +38,9 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        /*StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
                 .permitAll().build();
-        StrictMode.setThreadPolicy(policy);*/
+        StrictMode.setThreadPolicy(policy);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -70,8 +71,8 @@ public class MainActivity extends AppCompatActivity {
 //            }
 //        }
 
-//        RefresherThread refresher = new RefresherThread(this);
-//        refresher.run();
+        RefresherThread refresher = new RefresherThread(this);
+        refresher.run();
     }
 
     @Override
