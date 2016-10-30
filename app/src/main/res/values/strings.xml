@@ -7,6 +7,17 @@
     <string name="TOKEN">01oRxXYjeeY2EzJo</string>
     <string name="INSTALLATION_ID">NONNULL</string>
 
+    <string-array name="suggestions_array">
+        <item>@string/strArr2_1</item>
+        <item>@string/strArr2_2</item>
+        <item>@string/strArr2_3</item>
+        <item>@string/strArr2_4</item>
+    </string-array>
+    <string name="strArr2_1">Why not go by to the Alpha Stage\'s event?</string>
+    <string name="strArr2_2">Maybe have a cup of coffee at Cuesta :)</string>
+    <string name="strArr2_3">Why not stay for the firework show?</string>
+    <string name="strArr2_4">Why not head to the main stage for the concert?</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
