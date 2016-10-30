@@ -37,13 +37,15 @@ public class RefresherThread implements Runnable{
                 travelSummaries = new TravelSummaryRetriever(context).retrieve();
                 final double score = findMean();
                 Log.d("Andres", "Finished, score is: "+score);
-                
+
+
                 ((MainActivity) context).runOnUiThread(new Runnable() {
                     public void run() {
                         Log.d("Andres", "Running a UI thread");
-
+                        ((MainActivity) context).updateUI(score);
                     }
                 });
+
                 Thread.sleep(20000);
             } catch (Exception e) {
                 e.printStackTrace();
