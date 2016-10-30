@@ -25,9 +25,18 @@ public class RefresherThread implements Runnable{
     private ArrayList<TravelSummary> travelSummaries;
     private Context context;
     private ArrayList<Double> speeds = new ArrayList<>();
-
+    private Map<Integer, Double> map;
     public RefresherThread(Context context){
         this.context = context;
+        map = new HashMap<Integer, Double>();
+        map.put(175,24.0);
+        map.put(142,24.0);
+        map.put(143,24.0);
+        map.put(144,24.0);
+        map.put(221,48.0);
+        map.put(228,48.0);
+        map.put(218,48.0);
+        map.put(204,48.0);
 
     }
 
@@ -92,15 +101,7 @@ public class RefresherThread implements Runnable{
                 }
                 Log.d("esed", "*******************************");
                 Log.d("esed","*******************************");
-                Map<Integer, Double> map = new HashMap<Integer, Double>();
-                map.put(175,24.0);
-                map.put(142,24.0);
-                map.put(143,24.0);
-                map.put(144,24.0);
-                map.put(221,48.0);
-                map.put(228,48.0);
-                map.put(218,48.0);
-                map.put(204,48.0);
+
 
 
                 Double baseline;
