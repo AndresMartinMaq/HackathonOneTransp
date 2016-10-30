@@ -18,13 +18,12 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import net.uk.onetransport.android.modules.bitcarriersilverstone.authentication.CredentialHelper;
-import net.uk.onetransport.android.modules.bitcarriersilverstone.config.node.Node;
-import net.uk.onetransport.android.modules.bitcarriersilverstone.config.node.NodeRetriever;
 
 import java.util.ArrayList;
 import java.util.Random;
 
 import static android.graphics.Color.rgb;
+import static java.security.AccessController.getContext;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -71,8 +70,7 @@ public class MainActivity extends AppCompatActivity {
 //            }
 //        }
 
-        RefresherThread refresher = new RefresherThread(this);
-        refresher.run();
+        new Thread(new RefresherThread(this)).start();
     }
 
     @Override
@@ -121,6 +119,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void updateUI(double score){
+        Log.d("Andres", "updateUI called.");
         View view = findViewById(R.id.content_main);
         //Indicate how is the road state with color
         changeColor(view, score);
