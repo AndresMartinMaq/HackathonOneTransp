@@ -52,17 +52,17 @@ public class MainActivity extends AppCompatActivity {
         }
         Log.e("node",""+nodes.size());
 //
-        for(Node n : nodes){
-           String from =  n.getCustomerName().replaceFirst("-.*","");
-            if(from.equals("3")||from.equals("13")||from.equals("22")){
-                Log.d("Latitude", from + " "+n.getLatitude());
-
-                Log.d("Longitude", from + " " +n.getLongitude());
-            }
-        }
-
-//        RefresherThread refresher = new RefresherThread(this);
-//        refresher.run();
+//        for(Node n : nodes){
+//           String from =  n.getCustomerName().replaceFirst("-.*","");
+//            if(from.equals("3")||from.equals("13")||from.equals("22")){
+//                Log.d("Latitude", from + " "+n.getLatitude());
+//
+//                Log.d("Longitude", from + " " +n.getLongitude());
+//            }
+//        }
+//
+      RefresherThread refresher = new RefresherThread(this);
+        refresher.run();
     }
 
     @Override
